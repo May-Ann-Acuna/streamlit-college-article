@@ -2,8 +2,9 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 import requests
 
-# Set page title and layout
+# Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
+
 # Lottie animation function
 def load_lottie_url(url: str):
     r = requests.get(url)
@@ -11,7 +12,7 @@ def load_lottie_url(url: str):
         return None
     return r.json()
 
-# Add a header section with your name and title
+# ---- HEADER SECTION ----
 st.title("May-Ann B. Acuna 👩‍💻")
 st.subheader("Computer Engineering Student at SNSU 🎓")
 
@@ -21,13 +22,12 @@ lottie_animation = load_lottie_url(lottie_url)
 if lottie_animation:
     st_lottie(lottie_animation, speed=1, width=600, height=400, key="welcome")
 
-# Introduction message with emojis
+# Introduction
 st.markdown("""
 Hello! I'm **May-Ann B. Acuna**, a Computer Engineering student at SNSU. 🎓  
 In this article, I'll talk about the college life experience and some challenges that students face. 🌱
 """)
 
-# Add a section with a friendly and simple article about college students
 st.markdown("""
 ## 🌟 The College Journey
 
@@ -66,11 +66,10 @@ lottie_animation_end = load_lottie_url(lottie_url_end)
 if lottie_animation_end:
     st_lottie(lottie_animation_end, speed=1, width=600, height=400, key="conclusion")
 
-# Add a horizontal line to separate sections
 st.markdown("---")
 
-# Closing message with emojis
 st.markdown("""
 **Thanks for reading!** 😊  
 Feel free to connect with me for any questions or discussions. I wish all college students the best on their journey! 💫
 """)
+
